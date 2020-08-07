@@ -1,6 +1,9 @@
 #!/bin/bash
 BASEDIR=/tmp/tts
 
+mkdir $BASEDIR
+git clone https://github.com/thorstenMueller/TTS_recipes.git
+
 # Download and extract "thorsten" dataset
 python3 -m venv $BASEDIR
 source /tmp/tts/bin/activate
@@ -31,8 +34,8 @@ pip install -e .
 cd $BASEDIR/TTS/mozilla_voice_tts/tts/utils/text
 sed '/import re/a from german_transliterate.core import GermanTransliterate' cleaners.py > cleaners.py
 echo -e "\n\ndef german_phoneme_cleaners(text):" >> cleaners.py
-echo -e "\n\treturn GermanTransliterate(replace={';': ',', ':': ' '}, sep_abbreviation=' -- ').transliterate(text)"
+echo -e "\n\treturn GermanTransliterate(replace={';': ',', ':': ' '}, sep_abbreviation=' -- ').transliterate(text)" >> cleaners.py
 
 # Run training
-cd $BASEIDR
-CUDA_VISIBLE_DEVICES="0" python TTS/mozilla_voice_tts/bin/train_tts.py --config_path $BASEDIR/model-config.json
+cd $BASEIDR/TTS/mozilla_voice_tts/bin/
+CUDA_VISIBLE_DEVICES="0" python train_tts.py --config_path $BASEDIR/TTS_recipes/thorsten/tactotron2/model-config.json
