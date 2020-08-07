@@ -32,10 +32,11 @@ cd german_transliterate
 pip install -e .
 
 cd $BASEDIR/TTS/mozilla_voice_tts/tts/utils/text
-sed '/import re/a from german_transliterate.core import GermanTransliterate' cleaners.py > cleaners.py
-echo -e "\n\ndef german_phoneme_cleaners(text):" >> cleaners.py
-echo -e "\n\treturn GermanTransliterate(replace={';': ',', ':': ' '}, sep_abbreviation=' -- ').transliterate(text)" >> cleaners.py
+sed '/import re/a from german_transliterate.core import GermanTransliterate' cleaners.py >> cleaners-new.py
+mv cleaners-new.py cleaners.py
+echo -e "\ndef german_phoneme_cleaners(text):" >> cleaners.py
+echo -e "\treturn GermanTransliterate(replace={';': ',', ':': ' '}, sep_abbreviation=' -- ').transliterate(text)" >> cleaners.py
 
 # Run training
-cd $BASEIDR/TTS/mozilla_voice_tts/bin/
+cd $BASEDIR/TTS/mozilla_voice_tts/bin/
 CUDA_VISIBLE_DEVICES="0" python train_tts.py --config_path $BASEDIR/TTS_recipes/thorsten/tactotron2/model-config.json
