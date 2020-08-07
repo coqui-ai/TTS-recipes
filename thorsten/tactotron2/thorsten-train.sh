@@ -2,6 +2,7 @@
 BASEDIR=/tmp/tts
 
 mkdir $BASEDIR
+cd $BASEDIR
 git clone https://github.com/thorstenMueller/TTS_recipes.git
 
 # Download and extract "thorsten" dataset

@@ -112,7 +112,8 @@
     "tb_model_param_stats": false,     // true, plots param stats per layer on tensorboard. Might be memory consuming, but good for debugging. 
     
     // DATA LOADING
-    "text_cleaner": "phoneme_cleaners",
+    //"text_cleaner": "phoneme_cleaners",
+    "text_cleaner": "german_phoneme_cleaners",
     "enable_eos_bos_chars": false, // enable/disable beginning of sentence and end of sentence chars.
     "num_loader_workers": 8,        // number of training data loader processes. Don't set it too big. 4-8 are good values.
     "num_val_loader_workers": 4,    // number of evaluation data loader processes.
