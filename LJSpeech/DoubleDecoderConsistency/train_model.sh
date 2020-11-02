@@ -22,4 +22,4 @@ python TTS/compute_statistics.py --config_path model_config.json --out_path ./
 # change the GPU id if needed 
 CUDA_VISIBLE_DEVICES="0" python TTS/train.py --config_path model_config.json
 # train vocoder ...
-CUDA_VISIBLE_DEVICES="0" python TTS/train_vocoder.py --config_path vocoder_config.json
+CUDA_VISIBLE_DEVICES="0" python TTS/vocoder/train.py --config_path vocoder_config.json
