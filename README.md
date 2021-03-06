@@ -1,5 +1,5 @@
 # :frog: Coqui TTS recipes 
-Mozilla TTS recipes intended to host bash scripts running all the necessary steps to train a TTS model with a particular dataset. 
+:frog: TTS recipes intended to host bash scripts running all the necessary steps to train a TTS model with a particular dataset. 
 
 We have different folders for each dataset, including all the scripts shared so far. 
 
