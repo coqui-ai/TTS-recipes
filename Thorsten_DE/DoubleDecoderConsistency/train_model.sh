@@ -25,7 +25,7 @@ head -n 20400 Dataset/metadata_shuf.csv > Dataset/metadata_train.csv
 tail -n 2268 Dataset/metadata_shuf.csv > Dataset/metadata_val.csv
 
 # get TTS to your local
-git clone https://github.com/mozilla/TTS
+git clone https://github.com/coqui-ai/TTS
 
 # install deps
 sudo apt-get install espeak-ng
@@ -44,7 +44,7 @@ cd german_transliterate
 pip install -e .
 cd ..
 
-cd TTS/mozilla_voice_tts/tts/utils/text
+cd TTS/coqui_tts/tts/utils/text
 sed '/import re/a from german_transliterate.core import GermanTransliterate' cleaners.py >> cleaners-new.py
 mv cleaners-new.py cleaners.py
 echo -e "\ndef german_phoneme_cleaners(text):" >> cleaners.py
@@ -54,11 +54,11 @@ echo -e "\treturn GermanTransliterate(replace={';': ',', ':': ' '}, sep_abbrevia
 # compute dataset mean and variance for normalization
 # IMPORTANT: Copy model-config.json and vocoder-config.json to BASEDIR
 cd $BASEDIR
-python TTS/mozilla_voice_tts/bin/compute_statistics.py --config_path model_config.json --out_path ./
+python TTS/coqui_tts/bin/compute_statistics.py --config_path model_config.json --out_path ./
 
 # training ....
 # change the GPU id if needed
-CUDA_VISIBLE_DEVICES="0" python TTS/mozilla_voice_tts/bin/train_tts.py --config_path model_config.json
+CUDA_VISIBLE_DEVICES="0" python TTS/coqui_voice_tts/bin/train_tts.py --config_path model_config.json
 
 # train vocoder ...
-CUDA_VISIBLE_DEVICES="0" python TTS/mozilla_voice_tts/bin/train_vocoder.py --config_path vocoder_config.json
+CUDA_VISIBLE_DEVICES="0" python TTS/coqui_voice_tts/bin/train_vocoder.py --config_path vocoder_config.json
