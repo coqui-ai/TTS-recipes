@@ -12,6 +12,6 @@ Help + Community
 
 1. [Github Discussions](https://github.com/coqui-ai/tts-recipes/discussions/) - find and join open-ended community discussions related to 🐸TTS-recipes
 
-2. [Matrix Chat](https://matrix.to/#/+coqui:matrix.org>) - the 🐸 Matrix channel where you can chat with folks about 🐸TTS-recipes, get help, share ideas :)
+2. [Matrix Chat](https://matrix.to/#/#coqui-ai_TTS:gitter.im) - the 🐸 Matrix channel where you can chat with folks about 🐸TTS-recipes, get help, share ideas :)
 
 3. [Github Issues](https://github.com/coqui-ai/tts-recipes/issues) - If you ran into a specific error/problem, feel free to open an issue in the repo.
