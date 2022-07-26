@@ -1,4 +1,6 @@
-# 🐸TTS recipes 
+# Check [recipes](https://github.com/coqui-ai/TTS/tree/dev/recipes) under 🐸TTS for the most up-to-date content.
+
+# (Old) TTS recipes 
 🐸TTS recipes intended to host bash scripts running all the necessary steps to train a TTS model with a particular dataset. 
 
 We have different folders for each dataset, including all the scripts shared so far. 
